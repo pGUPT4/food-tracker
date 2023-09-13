@@ -1,0 +1,21 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/page",{
+
+/***/ "(app-pages-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%2FUsers%2Fparthgupta%2FDocuments%2FProjects%2FFood%20Tracker%2Fmy-app%2Fapp%2Ftoday_page%2Fsearch_and_suggestions%2Fpage.js&modules=%2FUsers%2Fparthgupta%2FDocuments%2FProjects%2FFood%20Tracker%2Fmy-app%2Fapp%2Ftoday_page%2Flist%2Fpage.js&server=false!":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%2FUsers%2Fparthgupta%2FDocuments%2FProjects%2FFood%20Tracker%2Fmy-app%2Fapp%2Ftoday_page%2Fsearch_and_suggestions%2Fpage.js&modules=%2FUsers%2Fparthgupta%2FDocuments%2FProjects%2FFood%20Tracker%2Fmy-app%2Fapp%2Ftoday_page%2Flist%2Fpage.js&server=false! ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+eval(__webpack_require__.ts("Promise.resolve(/*! import() eager */).then(__webpack_require__.bind(__webpack_require__, /*! ./app/today_page/search_and_suggestions/page.js */ \"(app-pages-browser)/./app/today_page/search_and_suggestions/page.js\"));\nPromise.resolve(/*! import() eager */).then(__webpack_require__.bind(__webpack_require__, /*! ./app/today_page/list/page.js */ \"(app-pages-browser)/./app/today_page/list/page.js\"))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uL25vZGVfbW9kdWxlcy9uZXh0L2Rpc3QvYnVpbGQvd2VicGFjay9sb2FkZXJzL25leHQtZmxpZ2h0LWNsaWVudC1lbnRyeS1sb2FkZXIuanM/bW9kdWxlcz0lMkZVc2VycyUyRnBhcnRoZ3VwdGElMkZEb2N1bWVudHMlMkZQcm9qZWN0cyUyRkZvb2QlMjBUcmFja2VyJTJGbXktYXBwJTJGYXBwJTJGdG9kYXlfcGFnZSUyRnNlYXJjaF9hbmRfc3VnZ2VzdGlvbnMlMkZwYWdlLmpzJm1vZHVsZXM9JTJGVXNlcnMlMkZwYXJ0aGd1cHRhJTJGRG9jdW1lbnRzJTJGUHJvamVjdHMlMkZGb29kJTIwVHJhY2tlciUyRm15LWFwcCUyRmFwcCUyRnRvZGF5X3BhZ2UlMkZsaXN0JTJGcGFnZS5qcyZzZXJ2ZXI9ZmFsc2UhIiwibWFwcGluZ3MiOiJBQUFBLHdOQUEySTtBQUMzSSIsInNvdXJjZXMiOlsid2VicGFjazovL19OX0UvPzdhY2UiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0KC8qIHdlYnBhY2tNb2RlOiBcImVhZ2VyXCIgKi8gXCIvVXNlcnMvcGFydGhndXB0YS9Eb2N1bWVudHMvUHJvamVjdHMvRm9vZCBUcmFja2VyL215LWFwcC9hcHAvdG9kYXlfcGFnZS9zZWFyY2hfYW5kX3N1Z2dlc3Rpb25zL3BhZ2UuanNcIik7XG5pbXBvcnQoLyogd2VicGFja01vZGU6IFwiZWFnZXJcIiAqLyBcIi9Vc2Vycy9wYXJ0aGd1cHRhL0RvY3VtZW50cy9Qcm9qZWN0cy9Gb29kIFRyYWNrZXIvbXktYXBwL2FwcC90b2RheV9wYWdlL2xpc3QvcGFnZS5qc1wiKSJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(app-pages-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%2FUsers%2Fparthgupta%2FDocuments%2FProjects%2FFood%20Tracker%2Fmy-app%2Fapp%2Ftoday_page%2Fsearch_and_suggestions%2Fpage.js&modules=%2FUsers%2Fparthgupta%2FDocuments%2FProjects%2FFood%20Tracker%2Fmy-app%2Fapp%2Ftoday_page%2Flist%2Fpage.js&server=false!\n"));
+
+/***/ })
+
+});

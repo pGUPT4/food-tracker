@@ -1,5 +1,3 @@
 {
-  "/page": "app/page.js",
-  "/routings/calander/page": "app/routings/calander/page.js",
-  "/routings/profile/page": "app/routings/profile/page.js"
+  "/page": "app/page.js"
 }

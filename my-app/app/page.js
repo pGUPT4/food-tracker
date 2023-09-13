@@ -4,7 +4,7 @@ import SearchAndSuggestion from "./today_page/search_and_suggestions/page";
 
 export default function Home() {
 
-    // const [todayList, setTodayList] = useState([])
+    var foodObj = {}
     // // const [item, setItem] = useState("")
     // const [query, setQuery] = useState("")
 
@@ -28,15 +28,19 @@ export default function Home() {
     //     })
     //     console.log(todayList)
     // }
+    
 
 return (
-    <main className="flex flex-row items-center justify-between p-24">
+    <main className="flex flex-row overflow:hidden items-center justify-between p-24">
         {/*left side */}
-        <FoodList />
+        <FoodList foodArr={foodObj} />
         
-        {/* right side upper half */}
+        {/* right side */}
         <div className='flex flex-col m-4 border-blue-600'>
-            <SearchAndSuggestion/>
+            {/* right side upper half*/}
+            <SearchAndSuggestion foodObj={foodObj}/>
+
+            {/* right side lower half*/}
             <NutritionTable/>
         </div>
     </main>
