@@ -4,7 +4,7 @@ import { useState } from "react"
 
 const SearchAndSuggestion = ({foodObj, foodObjF, inputF, buttonF}) => {
 
-    const [query, setQuery] = useState(" ")
+    const [query, setQuery] = useState("1")
     // const removeDuplicates = (arry) => {
     //     return arry.filter((item, index) => arry.indexOf(item) == index)}
 
@@ -38,6 +38,7 @@ const SearchAndSuggestion = ({foodObj, foodObjF, inputF, buttonF}) => {
                     className='m-2 w-120 h-8 rounded-2xl'
                     onChange = {(e) =>{
                         inputF(e.target.value)
+                        setQuery(e.target.value)
                     }}
                     />
                 <button 
