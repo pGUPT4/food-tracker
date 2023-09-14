@@ -1,48 +1,43 @@
+'use client'
+import React, {useState} from 'react'
 import FoodList from "./today_page/list/page";
 import NutritionTable from "./today_page/nutrition_table/page";
 import SearchAndSuggestion from "./today_page/search_and_suggestions/page";
 
 export default function Home() {
 
-    var foodObj = {}
-    // // const [item, setItem] = useState("")
-    // const [query, setQuery] = useState("")
-
-    // let tempList = [
-    //     <div className='flex flex-row box-border h-20 w-120 bg-red-600'>
-    //         {/* {item} */}
-    //         Hello
-    //         <button/>
-    //     </div>
-    // ]
-        
-    // const addItem = (item) => {
-    //     const foodItem = [
-    //         <div className='flex flex-row box-border h-20 w-120 bg-blue-600'>
-    //             {item}
-    //             <button/>
-    //         </div>
-    //     ]
-    //     setTodayList((oldArray) => {
-    //         [...oldArray, foodItem ]
-    //     })
-    //     console.log(todayList)
-    // }
+    const [foodObj, setFoodObj] = useState({});
+    const [input, setInput] = useState("");
+    const [buttonClicked, setButtonClicked] = useState(false);
     
+    const buttonF = (value) => {
+        setButtonClicked(value)
+    }
+
+    const inputF = (value) => {
+        setInput(value)
+    }
+
+    const foodObjF = (value) => {
+        setFoodObj(value)
+    }
+
 
 return (
     <main className="flex flex-row overflow:hidden items-center justify-between p-24">
         {/*left side */}
-        <FoodList foodArr={foodObj} />
+        <FoodList foodObj={foodObj} input= {input} buttonClicked = {buttonClicked}/>
         
         {/* right side */}
         <div className='flex flex-col m-4 border-blue-600'>
             {/* right side upper half*/}
-            <SearchAndSuggestion foodObj={foodObj}/>
+            <SearchAndSuggestion foodObj = {foodObj} foodObjF={foodObjF} inputF = {inputF} buttonF ={buttonF}/>
 
             {/* right side lower half*/}
             <NutritionTable/>
         </div>
+
+        <p>{Object.keys(foodObj) + ", " + input + ", " + buttonClicked}</p>
     </main>
     )
 }

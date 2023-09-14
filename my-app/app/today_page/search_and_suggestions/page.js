@@ -1,10 +1,14 @@
 'use client'
-const SearchAndSuggestion = ({foodObj}) => {
-    let query = ""
+
+import { useState } from "react"
+
+const SearchAndSuggestion = ({foodObj, foodObjF, inputF, buttonF}) => {
+
+    const [query, setQuery] = useState(" ")
     // const removeDuplicates = (arry) => {
     //     return arry.filter((item, index) => arry.indexOf(item) == index)}
 
-    const updateArr = (obj, query) => {
+    const updateObj = (obj, query) => {
         if(obj && typeof obj === 'object'){
             if(!obj.hasOwnProperty(query)){
                 obj[query] = 1
@@ -14,7 +18,16 @@ const SearchAndSuggestion = ({foodObj}) => {
         }
         return obj
     }
-    
+ 
+
+    const handleClick = () => {
+        
+        foodObjF(updateObj(foodObj, query))
+        buttonF(true)
+        setQuery(" ")
+        document.getElementById('myInput').value = ''
+        
+    }
 
     return (
         // Search bar, button with suggestion box
@@ -23,26 +36,20 @@ const SearchAndSuggestion = ({foodObj}) => {
                 <input
                     id = "myInput"
                     className='m-2 w-120 h-8 rounded-2xl'
-                    onChange = {(e) => {
-                        query = e.target.value
-                        console.log(query)
-                        }}
+                    onChange = {(e) =>{
+                        inputF(e.target.value)
+                    }}
                     />
                 <button 
                     className='w-20 h-8 bg-white m-2 rounded-2xl'
                     type='button'
-                    onClick = {() => {
-                        foodObj = updateArr(foodObj, query)
-                        query = ""
-                        document.getElementById('myInput').value = ''
-                    }}
+                    onClick = {handleClick}
                     >
                     Find
                 </button>
             </form>
 
             <div className='box-border h-48 w-144 m-2 bg-gray-300 border-1 rounded-2xl bg-grey-200'>
-                    Suggestion Box
             </div>
         </div>
     )
