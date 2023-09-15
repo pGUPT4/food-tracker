@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 
-const FoodList = ({foodObj, input, buttonClicked}) => {
+const FoodList = ({foodObj, input, buttonClicked, buttonF, validResponse}) => {
     const [displayObj, setDisplayObj] = useState([])
     // const [test, setTest] = useState(0)
     // const foodItem = foodObj[foodArr.length - 1]
@@ -27,20 +27,21 @@ const FoodList = ({foodObj, input, buttonClicked}) => {
     
     const newItem = [
         <div className='box box-border bg-blue-500 rounded-xl'>
-            foodCount, food
+            {Object.keys(foodObj) + ", " + Object.values(foodObj)}
         </div>
     ]
 
-    //if(buttonClicked){
-    //     setDisplayObj([
-    //         ...displayObj, newItem
-    //     ])
-        // buttonF(false)
-    //}
+    useEffect(() => {
+        if(validResponse){
+            setDisplayObj([
+                ...displayObj, newItem
+            ])
+            buttonF(false)
+        }
+    }, [validResponse])
 
     return (
-        <div className='box-border h-140 w-144 p-4 bg-gray-200 rounded-2xl'
-        onClick={() => {console.log(input + ","  + buttonClicked)}}>
+        <div className='box-border h-140 w-144 p-4 bg-gray-200 rounded-2xl'>
             {displayObj}
         </div>
     )

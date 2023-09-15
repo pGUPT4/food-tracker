@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-const SearchAndSuggestion = ({foodObj, foodObjF, inputF, buttonF}) => {
+const SearchAndSuggestion = ({foodObj, foodObjF, inputF, buttonF, buttonClicked, validResponseF}) => {
 
     const [query, setQuery] = useState("1")
     // const removeDuplicates = (arry) => {
@@ -24,6 +24,10 @@ const SearchAndSuggestion = ({foodObj, foodObjF, inputF, buttonF}) => {
         
         foodObjF(updateObj(foodObj, query))
         buttonF(true)
+        if(query != " " && buttonClicked){
+            validResponseF(true)
+        }
+
         setQuery(" ")
         document.getElementById('myInput').value = ''
         

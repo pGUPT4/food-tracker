@@ -9,6 +9,7 @@ export default function Home() {
     const [foodObj, setFoodObj] = useState({});
     const [input, setInput] = useState("");
     const [buttonClicked, setButtonClicked] = useState(false);
+    const [validResponse, setValidResponse] = useState(false);
     
     const buttonF = (value) => {
         setButtonClicked(value)
@@ -22,22 +23,37 @@ export default function Home() {
         setFoodObj(value)
     }
 
+    const validResponseF = (value) => {
+        setValidResponse(value)
+    }
+
 
 return (
     <main className="flex flex-row overflow:hidden items-center justify-between p-24">
         {/*left side */}
-        <FoodList foodObj={foodObj} input= {input} buttonClicked = {buttonClicked}/>
+        <FoodList 
+            foodObj={foodObj} 
+            input= {input} 
+            buttonClicked = {buttonClicked} 
+            buttonF = {buttonF}
+            validResponse = {validResponse}/>
         
         {/* right side */}
         <div className='flex flex-col m-4 border-blue-600'>
             {/* right side upper half*/}
-            <SearchAndSuggestion foodObj = {foodObj} foodObjF={foodObjF} inputF = {inputF} buttonF ={buttonF}/>
+            <SearchAndSuggestion 
+                foodObj = {foodObj} 
+                buttonClicked = {buttonClicked} 
+                foodObjF={foodObjF} 
+                inputF = {inputF} 
+                buttonF ={buttonF}
+                validResponseF = {validResponseF}/>
 
             {/* right side lower half*/}
             <NutritionTable/>
         </div>
 
-        <p>{Object.keys(foodObj) + ", " + input + ", " + buttonClicked}</p>
+        {/* <p>{foodObj + ", " + input + ", " + buttonClicked}</p> */}
     </main>
     )
 }
