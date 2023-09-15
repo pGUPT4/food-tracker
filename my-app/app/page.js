@@ -36,7 +36,8 @@ return (
             input= {input} 
             buttonClicked = {buttonClicked} 
             buttonF = {buttonF}
-            validResponse = {validResponse}/>
+            validResponse = {validResponse}
+            validResponseF = {validResponseF}/>
         
         {/* right side */}
         <div className='flex flex-col m-4 border-blue-600'>
@@ -47,7 +48,8 @@ return (
                 foodObjF={foodObjF} 
                 inputF = {inputF} 
                 buttonF ={buttonF}
-                validResponseF = {validResponseF}/>
+                validResponseF = {validResponseF}
+                />
 
             {/* right side lower half*/}
             <NutritionTable/>

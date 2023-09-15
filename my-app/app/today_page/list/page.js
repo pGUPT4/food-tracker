@@ -1,13 +1,12 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 
-const FoodList = ({foodObj, input, buttonClicked, buttonF, validResponse}) => {
-    const [displayObj, setDisplayObj] = useState([])
+const FoodList = ({foodObj, input, buttonClicked, buttonF, validResponse, validResponseF}) => {
+    const [displayObjArr, setDisplayObj] = useState([])
     // const [test, setTest] = useState(0)
     // const foodItem = foodObj[foodArr.length - 1]
-    let foodCount = 0
-    let food = ""
-    
+    const [foodCount, setFoodCount] = useState(0)
+    const [food, setFood] = useState("")
 
     const getFoodCount = (obj, index) => {
         if(obj && typeof obj === 'object'){
@@ -22,27 +21,41 @@ const FoodList = ({foodObj, input, buttonClicked, buttonF, validResponse}) => {
         }
     }
 
-    foodCount = getFoodCount(foodObj, input)
-    food = getFoodName(foodObj, input)
-    
+    // setFoodCount(getFoodCount(foodObj, input))
+    // setFood(getFoodName(foodObj, input))
     const newItem = [
-        <div className='box box-border bg-blue-500 rounded-xl'>
-            {Object.keys(foodObj) + ", " + Object.values(foodObj)}
+        <div className='box box-border rounded-xl h-36 m-2 bg-cyan-500'>
+            {food + ", " + foodCount}
         </div>
     ]
 
+    // let hasFoodExisted = displayObjArr.find((object) => {
+    //     if(object.food === input){
+    //         return true
+    //     }
+    //     return false
+    // })
+
     useEffect(() => {
+
         if(validResponse){
-            setDisplayObj([
-                ...displayObj, newItem
-            ])
-            buttonF(false)
+            // if(hasFoodExisted){
+            //     displayObjArr.find((index) => {
+            //         displayObjArr[index] = {food: foodCount}
+            //     })
+            //}else{
+                setDisplayObj((prevObj) => [
+                    ...prevObj, newItem
+                ])
+                buttonF(false)
+                validResponseF(false)
+            // }
         }
     }, [validResponse])
 
     return (
-        <div className='box-border h-140 w-144 p-4 bg-gray-200 rounded-2xl'>
-            {displayObj}
+        <div className='box-border h-140 w-144 p-4 bg-gray-200 rounded-2xl overflow-y-auto'>
+            {displayObjArr}
         </div>
     )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 
 export const Navbar = ({text, href, active}) => {
   return (
-    <div className='flex-1 flex flex-row bg-blue-500 text-white text-2xl font-mono font-bold'>
+    <div className='flex-1 flex flex-row bg-cyan-500 text-white text-2xl font-mono font-bold'>
         <Link className = "m-5"href = "/">Food Tracker</Link>
         
 
