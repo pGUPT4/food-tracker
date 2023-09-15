@@ -1,61 +1,64 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 
-const FoodList = ({foodObj, input, buttonClicked, buttonF, validResponse, validResponseF}) => {
+const FoodList = ({foodObj, input, buttonF, validResponse, validResponseF}) => {
     const [displayObjArr, setDisplayObj] = useState([])
     // const [test, setTest] = useState(0)
     // const foodItem = foodObj[foodArr.length - 1]
     const [foodCount, setFoodCount] = useState(0)
     const [food, setFood] = useState("")
 
-    const getFoodCount = (obj, index) => {
+    const getFoodCount = (obj, key) => {
         if(obj && typeof obj === 'object'){
-            return obj[index]
+            return obj?.key
         }
     }
-    const getFoodName = (obj, index) => {
+    const getFoodName = (obj, key) => {
         if(obj && typeof obj === 'object'){
-            if(obj.hasOwnProperty(index)){
-                return index
+            if(obj.hasOwnProperty(key)){
+                return key
             }
         }
     }
 
-    // setFoodCount(getFoodCount(foodObj, input))
-    // setFood(getFoodName(foodObj, input))
+    // 1) Edit Array
+    let checkFoodExists = displayObjArr.find((object) => {
+        if(object.food === input){
+            return true
+        }
+        return false
+    })
+    
     const newItem = [
-        <div className='box box-border rounded-xl h-36 m-2 bg-cyan-500'>
+        <div key = {food} class = {food} className='box box-border rounded-xl h-36 m-2 bg-cyan-500'>
             {food + ", " + foodCount}
         </div>
     ]
 
-    // let hasFoodExisted = displayObjArr.find((object) => {
-    //     if(object.food === input){
-    //         return true
-    //     }
-    //     return false
-    // })
+    
 
+    // 2) Append array
     useEffect(() => {
 
-        if(validResponse){
-            // if(hasFoodExisted){
-            //     displayObjArr.find((index) => {
-            //         displayObjArr[index] = {food: foodCount}
-            //     })
-            //}else{
-                setDisplayObj((prevObj) => [
-                    ...prevObj, newItem
-                ])
-                buttonF(false)
-                validResponseF(false)
-            // }
+        setFoodCount(getFoodCount(foodObj, input))
+        setFood(getFoodName(foodObj, input))
+
+        if(validResponse && !checkFoodExists){
+            setDisplayObj((prevObj) => [
+                ...prevObj, newItem
+            ])
+            validResponseF(false)    
         }
     }, [validResponse])
 
+
     return (
         <div className='box-border h-140 w-144 p-4 bg-gray-200 rounded-2xl overflow-y-auto'>
-            {displayObjArr}
+            {Object.entries(foodObj).map(([food, foodCount], i) => (
+                <div className = "box box-border rounded-xl h-36 m-2 bg-cyan-500">
+                    {food + ", " +foodCount}
+                </div>
+            )) }
         </div>
     )
 }

@@ -8,12 +8,8 @@ export default function Home() {
 
     const [foodObj, setFoodObj] = useState({});
     const [input, setInput] = useState("");
-    const [buttonClicked, setButtonClicked] = useState(false);
     const [validResponse, setValidResponse] = useState(false);
-    
-    const buttonF = (value) => {
-        setButtonClicked(value)
-    }
+
 
     const inputF = (value) => {
         setInput(value)
@@ -33,9 +29,7 @@ return (
         {/*left side */}
         <FoodList 
             foodObj={foodObj} 
-            input= {input} 
-            buttonClicked = {buttonClicked} 
-            buttonF = {buttonF}
+            input= {input}
             validResponse = {validResponse}
             validResponseF = {validResponseF}/>
         
@@ -43,11 +37,9 @@ return (
         <div className='flex flex-col m-4 border-blue-600'>
             {/* right side upper half*/}
             <SearchAndSuggestion 
-                foodObj = {foodObj} 
-                buttonClicked = {buttonClicked} 
+                foodObj = {foodObj}
                 foodObjF={foodObjF} 
-                inputF = {inputF} 
-                buttonF ={buttonF}
+                inputF = {inputF}
                 validResponseF = {validResponseF}
                 />
 
