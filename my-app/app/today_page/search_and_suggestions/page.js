@@ -23,13 +23,15 @@ const SearchAndSuggestion = ({foodObj, foodObjF, inputF, buttonF, validResponseF
     const handleClick = () => {
         
         inputF(query)
-        foodObjF(updateObj(foodObj, query)) // Updates database
         if(query != " "){
-            validResponseF(true)
+            foodObjF(updateObj(foodObj, query)) // Updates database
+        }else{
+            alert("Please select a food item")
         }
 
         setQuery(" ")
         document.getElementById('myInput').value = ''
+        console.log(foodObj)
         
     }
 

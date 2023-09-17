@@ -575,9 +575,6 @@ video {
 .m-5 {
   margin: 1.25rem;
 }
-.m-1 {
-  margin: 0.25rem;
-}
 .box-border {
   box-sizing: border-box;
 }
@@ -590,6 +587,9 @@ video {
 .h-140 {
   height: 40rem;
 }
+.h-36 {
+  height: 9rem;
+}
 .h-48 {
   height: 12rem;
 }
@@ -598,15 +598,6 @@ video {
 }
 .h-88 {
   height: 22rem;
-}
-.h-10 {
-  height: 2.5rem;
-}
-.h-40 {
-  height: 10rem;
-}
-.h-36 {
-  height: 9rem;
 }
 .w-120 {
   width: 30rem;
@@ -635,17 +626,14 @@ video {
 .items-center {
   align-items: center;
 }
+.justify-center {
+  justify-content: center;
+}
 .justify-between {
   justify-content: space-between;
 }
 .overflow-y-auto {
   overflow-y: auto;
-}
-.overflow-y-hidden {
-  overflow-y: hidden;
-}
-.overflow-y-clip {
-  overflow-y: clip;
 }
 .rounded-2xl {
   border-radius: 1rem;
@@ -665,13 +653,13 @@ video {
   --tw-border-opacity: 1;
   border-right-color: rgb(37 99 235 / var(--tw-border-opacity));
 }
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
 .bg-blue-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+}
+.bg-cyan-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 182 212 / var(--tw-bg-opacity));
 }
 .bg-gray-200 {
   --tw-bg-opacity: 1;
@@ -689,23 +677,14 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-.bg-blue-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
-}
-.bg-teal-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
-}
-.bg-cyan-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(6 182 212 / var(--tw-bg-opacity));
-}
 .p-24 {
   padding: 6rem;
 }
 .p-4 {
   padding: 1rem;
+}
+.text-center {
+  text-align: center;
 }
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -713,6 +692,10 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 .font-bold {
   font-weight: 700;
