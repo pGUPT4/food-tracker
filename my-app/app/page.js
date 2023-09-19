@@ -8,7 +8,6 @@ export default function Home() {
 
     const [foodObj, setFoodObj] = useState({});
     const [input, setInput] = useState("");
-    const [validResponse, setValidResponse] = useState(false);
 
     const inputF = (value) => {
         setInput(value)
@@ -18,19 +17,11 @@ export default function Home() {
         setFoodObj(value)
     }
 
-    const validResponseF = (value) => {
-        setValidResponse(value)
-    }
-
 
 return (
     <main className="flex flex-row overflow:hidden items-center justify-between p-24">
         {/*left side */}
-        <FoodList 
-            foodObj={foodObj}
-            input = {input}
-            validResponse = {validResponse}
-            validResponseF = {validResponseF}/>
+        <FoodList foodObj={foodObj}/>
         
         {/* right side */}
         <div className='flex flex-col m-4 border-blue-600'>
@@ -39,7 +30,6 @@ return (
                 foodObj = {foodObj}
                 foodObjF={foodObjF} 
                 inputF = {inputF}
-                validResponseF = {validResponseF}
                 />
 
             {/* right side lower half*/}

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-const SearchAndSuggestion = ({foodObj, foodObjF, inputF, buttonF, validResponseF}) => {
+const SearchAndSuggestion = ({foodObj, foodObjF, inputF}) => {
 
     const [query, setQuery] = useState(" ")
     // const removeDuplicates = (arry) => {
@@ -30,9 +30,7 @@ const SearchAndSuggestion = ({foodObj, foodObjF, inputF, buttonF, validResponseF
         }
 
         setQuery(" ")
-        document.getElementById('myInput').value = ''
-        console.log(foodObj)
-        
+        document.getElementById('myInput').value = ''        
     }
 
     const handleKeyDown = (e) => {
