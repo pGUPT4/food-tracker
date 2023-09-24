@@ -11,7 +11,7 @@ export const Navbar = ({text, href, active}) => {
             <Link className = "m-5 hover:underline" href= {"/"}>
                 Today
             </Link>
-            <Link className = "m-5 hover:underline" href= {"/routings/calander"}>Calandar</Link>
+            <Link className = "m-5 hover:underline" href= {"/routings/calendar"}>Calendar</Link>
             <Link className = "m-5 hover:underline" href= {"/routings/profile"}>Profile - Later use logo instead of text</Link>                
         </nav>
         
