@@ -1,14 +1,10 @@
 from flask import Flask, jsonify
 import pandas as pd
 import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
 
 app = Flask(__name__)
-
-
-df = pd.read_csv('../MyFoodData-Nutrition-Facts-SpreadSheet-Release-1-4.csv')
 
 def clean_data(df):
     #Data Clean
@@ -134,7 +130,7 @@ def clean_data(df):
 
 def process_data(df):
     for feature in list(df):
-        df[feature] = df[feature].fillna('')
+        df[feature] = df[feature].fillna(0)
     
     unique_values = df['Food Group'].unique()
     food_name_dictionary = {}
@@ -147,9 +143,6 @@ def process_data(df):
     food_name_dictionary = list_to_dictionary(unique_values, food_name_dictionary)
 
     df['Food Group'].replace(unique_values, [i for i in range(23)], inplace=True)
-
-    for feature in list(df):
-        df[feature] = df[feature].replace('', 0)
 
     df['Standardize Calories'] = df['Calories']
     df['Standardize Fat (g)'] = df['Fat (g)']
@@ -169,17 +162,29 @@ def process_data(df):
 
     return df
 
+
+
 @app.route('/get-recommendation', methods = ["GET"])
-def recommendar(row_number=None,data=None,n=5):
+def recommendar(row_number=1,data=None,n=5):
+
+    df = pd.read_csv("../MyFoodData-Nutrition-Facts-SpreadSheet-Release-1-4.csv")
+
     # now we are comparing our feature vector to matrix
+    df = clean_data(df)
+    df = process_data(df)
     if row_number:
         df['similarity'] = cosine_similarity([np.array(df.iloc[row_number, 9:14])],Y=df.iloc[:,9:14]).reshape(-1,1)
     if data:
         df['similarity'] = cosine_similarity(X=data,Y=df.iloc[:,:-1]).reshape(-1,1)
     
-    # top 10 similar property
+    # top 5 similar property
     indices2 = df['similarity'].nlargest(n + 1).index
-    return df.iloc[indices2.values]
+
+    json_data = df[indices2.values].to_json(orient="records")
+
+    return json_data
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
