@@ -168,22 +168,28 @@ def get_food_list():
     df = clean_data(df)
     df = process_data(df)
 
+    # print(list(df))
+
     food_dict = {}
     
     for (index, value) in enumerate(df['name'].tolist()):
             food_dict[index] = value
 
-    return food_dict
+    return df['name'].tolist()
 
 
-@app.route('/get-recommendation', methods = ["GET"])
-def recommendar(row_number=9000,data=None,n=5):
+@app.route('/get-recommendation/<string:food_name>', methods = ["GET"])
+def recommendar(food_name, row_number=None,data=None,n=5):
 
     df = pd.read_csv("../MyFoodData-Nutrition-Facts-SpreadSheet-Release-1-4.csv")
 
     # now we are comparing our feature vector to matrix
     df = clean_data(df)
     df = process_data(df)
+
+    temp_df = df.loc[df['name'] == food_name]
+    row_number = 0
+    row_number = temp_df['Column??']
 
     if row_number:
         df['similarity'] = cosine_similarity([np.array(df.iloc[row_number, 9:14])],Y=df.iloc[:,9:14]).reshape(-1,1)
