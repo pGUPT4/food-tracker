@@ -1,12 +1,14 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
-import sys
-import logging
+
 
 app = Flask(__name__)
+
+CORS(app, supports_credentials=True)
 
 def clean_data(df):
     #Data Clean
@@ -146,13 +148,6 @@ def process_data(df):
 
     df['Food Group'].replace(unique_values, [i for i in range(23)], inplace=True)
 
-    df['Standardize Calories'] = df['Calories']
-    df['Standardize Fat (g)'] = df['Fat (g)']
-    df['Standardize Protein (g)'] = df['Protein (g)']
-    df['Standardize Carbohydrate (g)'] = df['Carbohydrate (g)']
-    df['Standardize Sugars (g)'] = df['Sugars (g)']
-    df['Standardize Fiber (g)'] = df['Fiber (g)']
-
     # Data normalization
     scaler = MinMaxScaler()
     df['Standardize Calories'] = scaler.fit_transform(df[['Calories']])
@@ -164,6 +159,21 @@ def process_data(df):
 
     return df
 
+@app.route('/')
+def get_food_list():
+
+    df = pd.read_csv("../MyFoodData-Nutrition-Facts-SpreadSheet-Release-1-4.csv")
+
+    # now we are comparing our feature vector to matrix
+    df = clean_data(df)
+    df = process_data(df)
+
+    food_dict = {}
+    
+    for (index, value) in enumerate(df['name'].tolist()):
+            food_dict[index] = value
+
+    return food_dict
 
 
 @app.route('/get-recommendation', methods = ["GET"])
@@ -181,7 +191,7 @@ def recommendar(row_number=9000,data=None,n=5):
         df['similarity'] = cosine_similarity(X=data,Y=df.iloc[:,:-1]).reshape(-1,1)
     
     # top 5 similar property
-    indices2 = df['similarity'].nlargest(n + 1).index
+    indices2 = df['similarity'].nlargest(n+1).index
 
     json_data = df.iloc[indices2.values].to_json(orient="records")
 
